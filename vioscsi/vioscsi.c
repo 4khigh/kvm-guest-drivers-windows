@@ -1246,6 +1246,8 @@ ENTER_FN();
                 HandleResponse(DeviceExtension, cmd);
             }
             else {
+                HandleResponse(DeviceExtension, cmd);
+/*                
 #if (NTDDI_VERSION > NTDDI_WIN7)
                 PSRB_TYPE Srb = (PSRB_TYPE)(cmd->srb);
                 PSRB_EXTENSION srbExt = SRB_EXTENSION(Srb);
@@ -1262,6 +1264,7 @@ ENTER_FN();
 #else
                 NT_ASSERT(0);
 #endif
+*/
             }
         }
     } while (!virtqueue_enable_cb(vq));
