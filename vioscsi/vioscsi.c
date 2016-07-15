@@ -1210,7 +1210,8 @@ ENTER_FN();
             &adaptExt->dpc[MessageID-3],
             ULongToPtr(MessageID),
             ULongToPtr(MessageID));
-EXIT_FN();
+		virtqueue_disable_cb(vq);
+		EXIT_FN();
         return;
     }
     ProcessQueue(DeviceExtension, MessageID, TRUE);
@@ -1240,7 +1241,7 @@ ENTER_FN();
 
     VioScsiVQLock(DeviceExtension, MessageID, &queueLock, isr);
 
-    virtqueue_disable_cb(vq);
+//    virtqueue_disable_cb(vq);
     do {
         while ((cmd = (PVirtIOSCSICmd)virtqueue_get_buf(vq, &len)) != NULL) {
             if (adaptExt->num_queues == 1) {
