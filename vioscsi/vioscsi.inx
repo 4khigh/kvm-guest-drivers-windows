@@ -92,14 +92,17 @@ HKR, "Parameters\PnpInterface", "5", %REG_DWORD%, 0x00000001
 HKR, "Parameters", "BusType", %REG_DWORD%, 0x0000000A
 
 [pnpsafe_pci_addreg_msix]
-HKR, "Interrupt Management",, 0x00000010
-HKR, "Interrupt Management\MessageSignaledInterruptProperties",, 0x00000010
-HKR, "Interrupt Management\MessageSignaledInterruptProperties", MSISupported, 0x00010001, 1
-HKR, "Interrupt Management\MessageSignaledInterruptProperties", MessageNumberLimit, 0x00010001, 256
-HKR, "Interrupt Management\Affinity Policy",, 0x00000010
-HKR, "Interrupt Management\Affinity Policy", DevicePolicy, 0x00010001, 5
-HKR, "Interrupt Management\Affinity Policy", DevicePriority, 0x00010001, 3
 
+HKR,"Interrupt Management\Affinity Policy", GroupPolicy, 0x00010001, 1
+HKR,"Interrupt Management\MessageSignaledInterruptProperties", MSISupported,       0x00010001, 1
+HKR,"Interrupt Management\MessageSignaledInterruptProperties", MessageNumberLimit, 0x00010001, 258
+
+HKR,"Interrupt Management\MessageSignaledInterruptProperties\Range\0", DevicePolicy,    0x00010001, 0
+HKR,"Interrupt Management\MessageSignaledInterruptProperties\Range\0", StartingMessage, 0x00010001, 0
+HKR,"Interrupt Management\MessageSignaledInterruptProperties\Range\0", EndingMessage,   0x00010001, 2
+HKR,"Interrupt Management\MessageSignaledInterruptProperties\Range\1", DevicePolicy,    0x00010001, 5
+HKR,"Interrupt Management\MessageSignaledInterruptProperties\Range\1", StartingMessage, 0x00010001, 3
+HKR,"Interrupt Management\MessageSignaledInterruptProperties\Range\1", EndingMessage,   0x00010001, 258
 
 [Strings]
 ;
