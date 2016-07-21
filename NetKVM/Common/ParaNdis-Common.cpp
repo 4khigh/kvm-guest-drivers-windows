@@ -1331,6 +1331,8 @@ VOID ParaNdis_CleanupContext(PARANDIS_ADAPTER *pContext)
         pContext->RSS2QueueLength = 0;
     }
 
+    virtio_device_shutdown(&pContext->IODevice);
+
     pContext->PciResources.~CPciResources();
 }
 
